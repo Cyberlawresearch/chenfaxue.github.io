@@ -93,7 +93,7 @@ function initNavbar() {
    2. Publication Filter Engine
    -------------------------------------------------------------------------- */
 function initPublicationFilter() {
-  const filterTabs = document.querySelectorAll('.filter-tab');
+  const filterTabs = document.querySelectorAll('.editorial-tab, .filter-tab');
   const paperCards = document.querySelectorAll('.pub-card');
   const countBadge = document.getElementById('pub-visible-count');
 

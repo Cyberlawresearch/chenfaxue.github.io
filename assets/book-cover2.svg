@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="book2-cover" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c2410c"/>
+      <stop offset="60%" stop-color="#9a3412"/>
+      <stop offset="100%" stop-color="#431407"/>
+    </linearGradient>
+    <linearGradient id="spine-shadow2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.45)"/>
+      <stop offset="25%" stop-color="rgba(255,255,255,0.15)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.1)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Book Base -->
+  <rect width="160" height="220" fill="url(#book2-cover)" rx="4"/>
+
+  <!-- Left Spine Realistic 3D Lighting -->
+  <rect x="0" y="0" width="16" height="220" fill="url(#spine-shadow2)"/>
+  <line x1="16" y1="0" x2="16" y2="220" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <!-- Inner Frame Line -->
+  <rect x="24" y="16" width="120" height="188" fill="none" stroke="#fed7aa" stroke-width="1" opacity="0.65"/>
+
+  <!-- Series Tag -->
+  <text x="84" y="38" font-family="'Noto Serif SC', serif" font-size="7" fill="#ffedd5" text-anchor="middle" letter-spacing="1">中国法治现代化丛书</text>
+
+  <!-- Title in Cream White -->
+  <text x="84" y="68" font-family="'Noto Serif SC', serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">数据产权的</text>
+  <text x="84" y="86" font-family="'Noto Serif SC', serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">法理建构</text>
+  <text x="84" y="102" font-family="'Noto Serif SC', serif" font-size="7.5" fill="#fed7aa" text-anchor="middle">——制度供给与权益分配</text>
+
+  <!-- Abstract Geometry Accent -->
+  <g transform="translate(84, 130)" stroke="#ffedd5" stroke-width="1" fill="none" opacity="0.75">
+    <rect x="-18" y="-12" width="36" height="24" rx="2"/>
+    <circle cx="0" cy="0" r="6"/>
+  </g>
+
+  <!-- Author Name -->
+  <text x="84" y="172" font-family="'Noto Serif SC', serif" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="600">陈法学 著</text>
+
+  <!-- Publisher Seal -->
+  <text x="84" y="194" font-family="'Noto Serif SC', serif" font-size="6.5" fill="#fed7aa" text-anchor="middle" letter-spacing="0.5">北京大学出版社</text>
+</svg>

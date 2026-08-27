@@ -1,28 +1,40 @@
 /* ==========================================================================
-   AUTHENTIC ACADEMIC SCHOLAR DESIGN SYSTEM (法学学者严谨典雅学术风格)
+   EDITORIAL ACADEMIC DESIGN SYSTEM - KLEIN BLUE & ORANGE (MONOGRAPH EDITION)
    ========================================================================== */
 
 :root {
-  --bg-main: #fcfdfd;
-  --bg-card: #ffffff;
-  --bg-subtle: #f8fafc;
-  --bg-dark: #0f172a;
+  /* Crisp Modern Paper Palette */
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-subtle: #f1f5f9;
+  --bg-surface-hover: #e2e8f0;
   
-  --text-primary: #0f172a;       /* Deep slate/charcoal */
-  --text-secondary: #334155;     /* Slate text */
-  --text-muted: #64748b;         /* Muted gray */
-  --text-light: #94a3b8;
+  /* Ink & Typography Hierarchy */
+  --text-ink: #0f172a;          /* Obsidian Navy Black */
+  --text-ink-secondary: #334155; /* Slate */
+  --text-ink-muted: #64748b;     /* Muted Slate */
+  --text-ink-subtle: #94a3b8;    /* Light Ash */
   
-  --accent-navy: #1e3a8a;        /* Oxford/Academic Navy */
-  --accent-blue: #0369a1;        /* Academic Blue */
-  --accent-subtle: #e0f2fe;
+  /* Primary Vibrant Klein Blue (高饱和度克莱因蓝) */
+  --klein-blue: #002fa7;         /* Official International Klein Blue */
+  --klein-blue-hover: #002280;
+  --klein-blue-light: #1d4ed8;
+  --klein-blue-subtle: #eff4ff;
+  --klein-blue-glow: rgba(0, 47, 167, 0.08);
   
+  /* Vibrant Warm Orange (暖橙撞色) */
+  --warm-orange: #ea580c;        /* Terracotta / Hermès Orange */
+  --warm-orange-light: #f97316;
+  --warm-orange-subtle: #fff7ed;
+  
+  /* Borders */
   --border-light: #e2e8f0;
   --border-medium: #cbd5e1;
-  --border-active: #0284c7;
+  --border-klein: #002fa7;
 
-  --font-serif: "Noto Serif SC", "Cormorant Garamond", "Songti SC", "SimSun", Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  /* Fonts */
+  --font-serif: "Noto Serif SC", "Songti SC", "SimSun", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", monospace;
 }
 
@@ -36,155 +48,385 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
-  background-color: var(--bg-main);
-  color: var(--text-primary);
+  background-color: var(--bg-page);
+  color: var(--text-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
+  line-height: 1.8;
+  background-color: var(--bg-page);
+  color: var(--text-ink);
+  font-size: 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
   overflow-x: hidden;
-  line-height: 1.75;
-  background-color: var(--bg-main);
-  /* Subtle, restrained academic linen texture */
+  /* Subtle Academic Lattice Background */
   background-image: 
-    linear-gradient(to right, rgba(226, 232, 240, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(226, 232, 240, 0.35) 1px, transparent 1px);
-  background-size: 64px 64px;
+    radial-gradient(at 0% 10%, rgba(0, 47, 167, 0.04) 0px, transparent 40%),
+    radial-gradient(at 100% 30%, rgba(234, 88, 12, 0.03) 0px, transparent 40%),
+    linear-gradient(to right, rgba(0, 47, 167, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 47, 167, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 80px 80px, 80px 80px;
 }
 
-/* Typography adjustments */
+/* --------------------------------------------------------------------------
+   FLANK PILLARS: NATURAL ELEGANT ACADEMIC IMAGERY ON PAGE SIDES
+   (页面两侧自然高雅的法学图书馆与石拱长廊实景画卷修饰)
+   -------------------------------------------------------------------------- */
+.flank-pillar-left {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  width: 14vw;
+  max-width: 190px;
+  min-width: 120px;
+  height: calc(100vh - 4rem);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+  display: none;
+}
+
+.flank-pillar-right {
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  width: 14vw;
+  max-width: 190px;
+  min-width: 120px;
+  height: calc(100vh - 4rem);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+  display: none;
+}
+
+@media (min-width: 1360px) {
+  .flank-pillar-left,
+  .flank-pillar-right {
+    display: block;
+  }
+}
+
+.flank-image-mask-left {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 65%, transparent 100%),
+              linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 65%, transparent 100%),
+                      linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.flank-image-mask-right {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 65%, transparent 100%),
+              linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 65%, transparent 100%),
+                      linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+.flank-image-mask-left img,
+.flank-image-mask-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) saturate(0.9) brightness(0.98);
+}
+
+.flank-ribbon {
+  position: absolute;
+  bottom: 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--klein-blue);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 47, 167, 0.12);
+  border: 1px solid var(--border-light);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.flank-pillar-left .flank-ribbon { left: 1rem; }
+.flank-pillar-right .flank-ribbon { right: 1rem; }
+
+/* Typography styles */
 .font-serif { font-family: var(--font-serif); }
 .font-sans { font-family: var(--font-sans); }
 .font-mono { font-family: var(--font-mono); }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--text-primary);
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--text-ink);
   font-weight: 700;
-  line-height: 1.35;
+  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
-p {
-  color: var(--text-secondary);
-  line-height: 1.8;
+/* Section Rule with strong Klein Blue accent */
+.section-rule {
+  border-top: 1.5px solid var(--border-light);
+  padding-top: 3.5rem;
+  margin-top: 3.5rem;
+  position: relative;
 }
 
-/* Academic Paper Card */
-.academic-card {
-  background: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
-  transition: all 0.25s ease;
-}
-
-.academic-card:hover {
-  border-color: var(--border-medium);
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-  transform: translateY(-2px);
-}
-
-/* Restrained Navigation */
-.academic-nav {
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-light);
-}
-
-/* Academic Index Badges */
-.badge-academic {
+.section-label {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--klein-blue);
+  font-weight: 700;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  letter-spacing: 0.02em;
+  gap: 0.45rem;
 }
 
-.badge-cssci {
-  background-color: #f1f5f9;
-  color: #1e3a8a;
-  border: 1px solid #cbd5e1;
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background-color: var(--warm-orange);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.2);
 }
 
-.badge-ssci {
-  background-color: #f0fdf4;
-  color: #166534;
-  border: 1px solid #bbf7d0;
-}
-
-.badge-status-ongoing {
-  background-color: #eff6ff;
-  color: #1d4ed8;
-  border: 1px solid #bfdbfe;
-}
-
-.badge-status-done {
-  background-color: #f8fafc;
-  color: #475569;
-  border: 1px solid #e2e8f0;
-}
-
-/* Tab Filter Buttons */
-.filter-tab {
-  font-size: 0.85rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  border: 1px solid var(--border-light);
-  background: #ffffff;
-  color: var(--text-secondary);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.filter-tab:hover {
-  background: #f8fafc;
-  color: var(--text-primary);
-  border-color: var(--border-medium);
-}
-
-.filter-tab.active {
-  background: #0f172a;
-  color: #ffffff;
-  border-color: #0f172a;
-}
-
-/* Minimalist Toast */
-#toast {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 100;
-  transform: translateY(160%);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-#toast.show {
-  transform: translateY(0);
-}
-
-/* Portrait Presentation */
-.academic-portrait-wrapper {
+/* Top Nav Link Styling with Micro Accents */
+.nav-pill-item {
   position: relative;
-  background: #ffffff;
-  padding: 10px;
-  border-radius: 16px;
-  border: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.06);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
-.academic-portrait-wrapper img {
-  border-radius: 10px;
+.nav-pill-item:hover {
+  background-color: var(--klein-blue-subtle);
+  color: var(--klein-blue);
+}
+
+.nav-pill-item.active {
+  background-color: var(--klein-blue);
+  color: #ffffff !important;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 47, 167, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   ARCHED PORTRAIT FRAME (人像框：真实人脸 + 罗马拱门式艺术装裱)
+   -------------------------------------------------------------------------- */
+.portrait-arch-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.portrait-arch-backdrop {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 140px 140px 20px 20px;
+  background: var(--klein-blue-subtle);
+  border: 2px dashed var(--klein-blue);
+  z-index: 0;
+  opacity: 0.85;
+}
+
+.portrait-arch-frame {
+  position: relative;
+  border-radius: 130px 130px 18px 18px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 3px solid var(--klein-blue);
+  box-shadow: 0 16px 36px -8px rgba(0, 47, 167, 0.2);
+  z-index: 1;
+}
+
+.portrait-arch-frame img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  background-color: #f8fafc;
+}
+
+/* --------------------------------------------------------------------------
+   NATURAL PHOTO VIGNETTES (真实学术实景卡片)
+   -------------------------------------------------------------------------- */
+.natural-photo-card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.natural-photo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(0, 47, 167, 0.1);
+}
+
+.natural-photo-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.natural-photo-caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-ink-muted);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-surface-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   MONOGRAPH BOOK COVERS (专著书封点缀)
+   -------------------------------------------------------------------------- */
+.book-cover-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.35rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.book-cover-card:hover {
+  border-color: var(--klein-blue);
+  box-shadow: 0 12px 28px -6px rgba(0, 47, 167, 0.14);
+  transform: translateY(-2px);
+}
+
+.book-mockup-wrap {
+  width: 88px;
+  height: 122px;
+  flex-shrink: 0;
+  border-radius: 3px 6px 6px 3px;
+  box-shadow: 4px 8px 18px rgba(0, 47, 167, 0.2), inset 3px 0 6px rgba(0,0,0,0.15);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* --------------------------------------------------------------------------
+   BIBLIOGRAPHY & PUBLICATIONS
+   -------------------------------------------------------------------------- */
+.pub-entry {
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--border-light);
+  transition: background-color 0.2s ease;
+}
+.pub-entry:last-child {
+  border-bottom: none;
+}
+
+.pub-entry-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--klein-blue);
+  font-weight: 700;
+  width: 2.3rem;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+/* Minimal Underline Filter Tabs */
+.editorial-tab {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 0.45rem 0.95rem;
+  color: var(--text-ink-muted);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.editorial-tab:hover {
+  color: var(--klein-blue);
+}
+
+.editorial-tab.active {
+  color: var(--klein-blue);
+  font-weight: 700;
+}
+
+.editorial-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0.95rem;
+  right: 0.95rem;
+  height: 3px;
+  background: var(--klein-blue);
+  border-radius: 2px;
+}
+
+/* Badges */
+.academic-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  background: var(--bg-surface-subtle);
+  color: var(--text-ink-secondary);
+  border: 1px solid var(--border-light);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tag-cssci {
+  background: var(--klein-blue-subtle);
+  color: var(--klein-blue);
+  border-color: #bfdbfe;
+  font-weight: 700;
+}
+
+.tag-ssci {
+  background: var(--warm-orange-subtle);
+  color: var(--warm-orange);
+  border-color: #fed7aa;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   STICKY SIDEBAR
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .sticky-scholar-sidebar {
+    position: sticky;
+    top: 5.5rem;
+    align-self: flex-start;
+  }
 }
 
 /* Custom Scrollbar */
@@ -193,44 +435,31 @@ p {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: var(--bg-page);
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
+  background: var(--border-medium);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: var(--klein-blue);
 }
 
-/* Academic Section Dividers */
-.section-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent-navy);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Toast */
+#toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  transform: translateY(160%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--klein-blue);
+  color: #ffffff;
+  font-size: 0.82rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--warm-orange);
+  box-shadow: 0 12px 30px rgba(0, 47, 167, 0.25);
 }
-
-.section-tag::before {
-  content: '';
-  display: inline-block;
-  width: 16px;
-  height: 2px;
-  background-color: var(--accent-navy);
-}
-
-/* Smooth reveal */
-.reveal-init {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-.reveal-init.is-visible {
-  opacity: 1;
+#toast.show {
   transform: translateY(0);
 }
