@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>陈法学 教授 | 个人学术主页</title>
+  
+  <!-- Academic Metadata -->
+  <meta name="description" content="陈法学，法学博士，法学院教授、博士生导师。主要从事人工智能法学、数据要素与个人信息保护、计算法学与法理学研究。">
+  <meta name="keywords" content="陈法学, 法学学者, 人工智能法学, 数据法, 计算法学, 法理学, 学术主页">
+  <meta name="author" content="陈法学">
+
+  <!-- Google Fonts with China-friendly non-blocking fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            academic: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e3a8a',
+              900: '#0f172a',
+            }
+          },
+          fontFamily: {
+            serif: ['"Noto Serif SC"', 'SimSun', 'STSong', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '"PingFang SC"', '"Hiragino Sans GB"', '"Microsoft YaHei"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons (Local Bundle) -->
+  <script src="js/lucide.min.js"></script>
+
+  <!-- Custom Academic Styling -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#fcfdfd] text-slate-900 selection:bg-slate-200">
+
+  <!-- =========================================================================
+       NAVIGATION BAR (Clean, Restrained Academic Header)
+       ========================================================================= -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 academic-nav">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-18 py-3.5">
+        
+        <!-- Academic Identity Title -->
+        <a href="#about" class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center font-serif text-sm font-bold shadow-sm">
+            法
+          </div>
+          <div>
+            <span class="font-serif text-lg font-bold text-slate-900 tracking-normal block leading-tight">
+              陈法学 <span class="text-xs font-sans font-normal text-slate-500 ml-1">教授 / 博士生导师</span>
+            </span>
+            <span class="text-[11px] font-sans text-slate-500 block">法学院 · 数字法治研究院</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-normal text-slate-600">
+          <a href="#about" class="nav-link hover:text-slate-900 transition-colors py-1">学者简介</a>
+          <a href="#positions" class="nav-link hover:text-slate-900 transition-colors py-1">职务兼职</a>
+          <a href="#publications" class="nav-link hover:text-slate-900 transition-colors py-1">发表论文</a>
+          <a href="#projects" class="nav-link hover:text-slate-900 transition-colors py-1">科研项目</a>
+          <a href="#engagement" class="nav-link hover:text-slate-900 transition-colors py-1">社会服务</a>
+          <a href="#awards" class="nav-link hover:text-slate-900 transition-colors py-1">荣誉奖项</a>
+          <a href="#philosophy" class="nav-link hover:text-slate-900 transition-colors py-1">研究特色</a>
+          <a href="#contact" class="nav-link hover:text-slate-900 transition-colors py-1 font-medium text-slate-900">联系方式</a>
+        </nav>
+
+        <!-- Right Quick CV Link -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="#contact" class="px-4 py-2 rounded-lg text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors flex items-center gap-1.5">
+            <i data-lucide="mail" class="w-3.5 h-3.5 text-slate-600"></i>
+            <span>联络方式</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Open Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-backdrop" class="fixed inset-0 bg-slate-900/30 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-200"></div>
+  <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-3/4 max-w-xs bg-white z-50 shadow-xl p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out">
+    <div>
+      <div class="flex items-center justify-between pb-5 border-b border-slate-100">
+        <span class="font-serif font-bold text-base text-slate-900">陈法学 个人主页</span>
+        <button id="mobile-close-btn" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <nav class="mt-5 flex flex-col gap-3 text-sm text-slate-700">
+        <a href="#about" class="mobile-nav-link py-2 border-b border-slate-50 flex items-center justify-between">
+          <span>学者简介</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+        <a href="#positions" class="mobile-nav-link py-2 border-b border-slate-50 flex items-center justify-between">
+          <span>职务与兼职</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+        <a href="#publications" class="mobile-nav-link py-2 border-b border-slate-50 flex items-center justify-between">
+          <span>发表论文成果</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+        <a href="#projects" class="mobile-nav-link py-2 border-b border-slate-50 flex items-center justify-between">
+          <span>主持科研项目</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+        <a href="#engagement" class="mobile-nav-link py-2 border-b border-slate-50 flex items-center justify-between">
+          <span>社会服务与咨询</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+        <a href="#awards" class="mobile-nav-link py-2 border-b border-slate-50 flex items-center justify-between">
+          <span>荣誉奖项</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+        <a href="#philosophy" class="mobile-nav-link py-2 border-b border-slate-50 flex items-center justify-between">
+          <span>研究特色与理念</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-link py-2 font-medium text-slate-900 flex items-center justify-between">
+          <span>联系方式</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+        </a>
+      </nav>
+    </div>
+    <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 font-mono">
+      chen_legal@univ.edu.cn
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       1. HERO & PERSONAL PROFILE (页面开头：学者个人简介与履历画像)
+       ========================================================================= -->
+  <section id="about" class="pt-28 pb-16 sm:pt-32 sm:pb-20 border-b border-slate-200/80 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        <!-- Left: Scholar Portrait Photo & Quick Facts -->
+        <div class="md:col-span-4 lg:col-span-4">
+          <div class="academic-portrait-wrapper">
+            <img src="assets/portrait.svg" alt="陈法学 教授肖像" class="w-full aspect-[4/5] object-cover">
+          </div>
+
+          <!-- Academic Links Box -->
+          <div class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-600 space-y-2.5">
+            <div class="font-medium text-slate-800 pb-1 border-b border-slate-200 flex items-center gap-1.5">
+              <i data-lucide="user-check" class="w-3.5 h-3.5 text-slate-600"></i> 学术身份与检索号
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-500 font-mono">ORCID</span>
+              <a href="#" class="font-mono text-slate-700 hover:text-blue-700">0000-0002-8910-XXXX</a>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-500">Google Scholar</span>
+              <a href="#" class="text-slate-700 hover:text-blue-700">Prof. Faxue Chen</a>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-500">SSRN Author ID</span>
+              <a href="#" class="font-mono text-slate-700 hover:text-blue-700">4291882</a>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-500">知网学者库</span>
+              <a href="#" class="text-slate-700 hover:text-blue-700">陈法学 (北京大学)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Natural Bio, Positions, Research Focus -->
+        <div class="md:col-span-8 lg:col-span-8 space-y-6">
+          
+          <!-- Name and Main Title -->
+          <div>
+            <div class="inline-block text-xs font-mono text-slate-500 uppercase tracking-wider mb-1.5">Faculty Profile</div>
+            <h1 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 tracking-tight">
+              陈法学 <span class="text-lg font-sans font-normal text-slate-500 ml-2">教授 / 博士生导师</span>
+            </h1>
+            <p class="text-sm font-sans text-slate-600 mt-2">
+              法学院教授 · 数字法治研究院执行院长 · 国家级青年人才
+            </p>
+          </div>
+
+          <!-- Academic Bio Paragraph (Natural, Rigorous, Modest) -->
+          <div class="space-y-3.5 text-sm sm:text-base text-slate-700 leading-relaxed">
+            <p>
+              陈法学，法学博士，现任法学院教授、博士生导师，兼任数字法治研究院执行院长。北京大学法学院法学学士、法学博士，牛津大学法律系博士后研究员，曾任剑桥大学劳特派特法学研究中心访问学者。
+            </p>
+            <p>
+              主要研究方向为<strong>人工智能法学、数据要素与个人信息保护、网络空间法治以及计算法学与法理学</strong>。主持国家社会科学基金重大项目、教育部人文社科重点研究基地重大项目等科研课题十余项；在《中国法学》《法学研究》《中外法学》以及《Harvard Journal of Law &amp; Technology》等国内外核心学术期刊发表学术论文60余篇；出版《数字法学导论》《数据产权的法理建构》等学术专著4部。
+            </p>
+            <p>
+              兼任中国法学会网络与信息法学研究会常务理事、中国人工智能学会AI伦理工作组专家委员，先后参与国家多部数字经济与人工智能领域法律法规的学者建议稿起草与论证工作。
+            </p>
+          </div>
+
+          <!-- Research Fields Tags -->
+          <div class="pt-2">
+            <div class="text-xs font-medium text-slate-500 mb-2">主要研究领域与教学专长：</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
+                人工智能与算法法律规制
+              </span>
+              <span class="px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
+                数据产权结构与流通治理
+              </span>
+              <span class="px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
+                计算法学与司法大数据实证
+              </span>
+              <span class="px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
+                涉外数字法治与比较法
+              </span>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Contact Strip -->
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3">
+            <a href="#publications" class="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium transition-colors flex items-center gap-1.5 shadow-sm">
+              <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+              <span>查看发表论文</span>
+            </a>
+            <a href="#projects" class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-medium transition-colors flex items-center gap-1.5">
+              <i data-lucide="folder-git-2" class="w-3.5 h-3.5 text-slate-500"></i>
+              <span>主持科研项目</span>
+            </a>
+            <a href="#contact" class="px-4 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-medium transition-colors flex items-center gap-1.5">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-slate-500"></i>
+              <span>联系邮箱与办公地址</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       2. POSITIONS & ACADEMIC APPOINTMENTS (主要职位与社会兼职)
+       ========================================================================= -->
+  <section id="positions" class="py-16 sm:py-20 border-b border-slate-200/80 bg-[#f8fafc]/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10">
+        <span class="section-tag mb-2">APPOINTMENTS &amp; ROLES</span>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">主要职位与学术兼职</h2>
+        <p class="mt-1 text-slate-500 text-sm">涵盖校内教学科研管理、国家级法学会专委会及学术期刊学术服务。</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: University -->
+        <div class="academic-card p-6 bg-white">
+          <div class="flex items-center gap-2.5 text-slate-900 font-serif text-lg font-bold mb-4 pb-3 border-b border-slate-100">
+            <i data-lucide="landmark" class="w-5 h-5 text-slate-700"></i>
+            <span>校内职务与学术岗位</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-600 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>法学院 教授、博士生导师</strong>（法理学与数字法学方向）</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>数字法治研究院 执行院长</strong>（省部级重点研究基地）</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>校学术委员会委员、学位评定分委员会委员</strong></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span>国家级一流本科课程《人工智能法学前沿》主讲教师</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Societies -->
+        <div class="academic-card p-6 bg-white">
+          <div class="flex items-center gap-2.5 text-slate-900 font-serif text-lg font-bold mb-4 pb-3 border-b border-slate-100">
+            <i data-lucide="users-2" class="w-5 h-5 text-slate-700"></i>
+            <span>学术团体与社会兼职</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-600 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>中国法学会网络与信息法学研究会</strong> 常务理事</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>中国法学会法理学研究会</strong> 理事</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>中国人工智能学会 (CAAI) AI伦理工作组</strong> 专家委员</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>全国信息安全标准化技术委员会 (TC260)</strong> 专家委员</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Editorial & Advisory -->
+        <div class="academic-card p-6 bg-white">
+          <div class="flex items-center gap-2.5 text-slate-900 font-serif text-lg font-bold mb-4 pb-3 border-b border-slate-100">
+            <i data-lucide="book-marked" class="w-5 h-5 text-slate-700"></i>
+            <span>期刊编委与国际任职</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-600 leading-relaxed">
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>《数字法治评论》</strong> 执行主编</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>《Asian Journal of Law &amp; Technology》</strong> 编委 (Editorial Board)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span><strong>国际计算法学联合会 (IACJ)</strong> 亚太执委会委员</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400 mt-1">▪</span>
+              <span>多所知名仲裁委员会 互联网与数字经济仲裁员</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       3. SELECTED PUBLICATIONS (发表论文模块 - 严谨学术列表)
+       ========================================================================= -->
+  <section id="publications" class="py-16 sm:py-20 border-b border-slate-200/80 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div>
+          <span class="section-tag mb-2">PUBLICATIONS</span>
+          <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">代表性学术论文</h2>
+          <p class="mt-1 text-slate-500 text-sm">发表于中英文法学权威核心期刊与交叉学科前沿阵地。</p>
+        </div>
+        <div id="pub-visible-count" class="text-xs font-mono text-slate-500 bg-slate-50 border border-slate-200 px-3 py-1 rounded">
+          共收录代表性论著
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap items-center gap-2 mb-8 pb-4 border-b border-slate-100">
+        <button class="filter-tab active" data-filter="all">全部论文 (All)</button>
+        <button class="filter-tab" data-filter="ai-gov">人工智能与算法规制</button>
+        <button class="filter-tab" data-filter="data-law">数据要素与产权保护</button>
+        <button class="filter-tab" data-filter="cyber-security">网络安全与数据主权</button>
+        <button class="filter-tab" data-filter="jurisprudence">数字法理与计算法学</button>
+      </div>
+
+      <!-- Publication List -->
+      <div class="space-y-4" id="publication-list">
+        
+        <!-- Paper 1 -->
+        <article class="academic-card p-5 sm:p-6 pub-card" data-category="ai-gov jurisprudence">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="badge-academic badge-cssci">CSSCI 权威期刊</span>
+              <span class="badge-academic badge-cssci">CLSCI 顶刊</span>
+              <span class="text-xs font-mono text-slate-400">2024 · 独立作者</span>
+            </div>
+            <span class="text-xs font-mono text-slate-400">DOI: 10.14111/j.cnki.zgfx.2024.03.008</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-serif font-bold text-slate-900 leading-snug">
+            生成式人工智能的知识产权侵权认定与责任边界重构
+          </h3>
+          <p class="text-xs sm:text-sm font-sans text-slate-600 mt-1">
+            《中国法学》2024年第3期，第45-68页（《人大复印报刊资料·民商法学》全文转载）
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+            探讨生成式人工智能（AIGC）对传统著作权侵权判定范式带来的影响，从数据训练摄入、表征学习到内容生成全流程切入，提出建立“输入层合理使用+输出层实质溯源”的双轨规则架构。
+          </p>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 mt-4 pt-3 border-t border-slate-100 text-xs">
+            <button class="view-abstract-btn text-slate-700 hover:text-blue-700 font-medium flex items-center gap-1" data-paper-id="p1">
+              <i data-lucide="align-left" class="w-3.5 h-3.5"></i> 查看摘要与关键词
+            </button>
+            <div class="flex items-center gap-2">
+              <button class="copy-bibtex-btn px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-mono flex items-center gap-1 transition-colors" data-bibtex="@article{chen2024generative, title={生成式人工智能的知识产权侵权认定与责任边界重构}, author={陈法学}, journal={中国法学}, number={3}, pages={45--68}, year={2024}}">
+                <i data-lucide="copy" class="w-3 h-3"></i> BibTeX
+              </button>
+              <a href="#" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-mono flex items-center gap-1 transition-colors">
+                <i data-lucide="external-link" class="w-3 h-3"></i> CNKI
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Paper 2 -->
+        <article class="academic-card p-5 sm:p-6 pub-card" data-category="ai-gov cyber-security">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="badge-academic badge-ssci">SSCI Q1 顶刊</span>
+              <span class="text-xs font-mono text-slate-400">2023 · 第一作者 &amp; 通讯作者</span>
+            </div>
+            <span class="text-xs font-mono text-slate-400">Harvard JOLT · Vol. 37</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-serif font-bold text-slate-900 leading-snug">
+            Algorithmic Governance and the Rule of Law: Reconceptualizing Due Process in AI-Driven Decisions
+          </h3>
+          <p class="text-xs sm:text-sm font-sans text-slate-600 mt-1">
+            Harvard Journal of Law &amp; Technology, Vol. 37, No. 2, pp. 312-354 (2023)
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+            As automated decision-making systems permeate administrative enforcement and judicial support, traditional due process faces challenges. This article advances an 'algorithmic due process' framework encompassing counterfactual explanations and auditability.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 mt-4 pt-3 border-t border-slate-100 text-xs">
+            <button class="view-abstract-btn text-slate-700 hover:text-blue-700 font-medium flex items-center gap-1" data-paper-id="p2">
+              <i data-lucide="align-left" class="w-3.5 h-3.5"></i> 查看摘要与关键词
+            </button>
+            <div class="flex items-center gap-2">
+              <button class="copy-bibtex-btn px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-mono flex items-center gap-1 transition-colors" data-bibtex="@article{chen2023algorithmic, title={Algorithmic Governance and the Rule of Law: Reconceptualizing Due Process in AI-Driven Decisions}, author={Chen, Faxue}, journal={Harvard Journal of Law & Technology}, volume={37}, number={2}, pages={312--354}, year={2023}}">
+                <i data-lucide="copy" class="w-3 h-3"></i> BibTeX
+              </button>
+              <a href="#" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-mono flex items-center gap-1 transition-colors">
+                <i data-lucide="external-link" class="w-3 h-3"></i> SSRN
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Paper 3 -->
+        <article class="academic-card p-5 sm:p-6 pub-card" data-category="data-law">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="badge-academic badge-cssci">CSSCI 权威期刊</span>
+              <span class="badge-academic badge-cssci">CLSCI 顶刊</span>
+              <span class="text-xs font-mono text-slate-400">2023 · 独立作者</span>
+            </div>
+            <span class="text-xs font-mono text-slate-400">DOI: 10.13415/j.cnki.fxzy.2023.02.004</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-serif font-bold text-slate-900 leading-snug">
+            数据产权结构的“三权分置”法理逻辑与制度供给
+          </h3>
+          <p class="text-xs sm:text-sm font-sans text-slate-600 mt-1">
+            《法学研究》2023年第2期，第82-101页（《新华文摘》2023年第14期论点摘编）
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+            深入剖析数据资源持有权、数据加工使用权与数据产品经营权的法权结构，分析淡化所有权、强化用益权的制度安排，为数据基础制度构建提供法理支撑。
+          </p>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 mt-4 pt-3 border-t border-slate-100 text-xs">
+            <button class="view-abstract-btn text-slate-700 hover:text-blue-700 font-medium flex items-center gap-1" data-paper-id="p3">
+              <i data-lucide="align-left" class="w-3.5 h-3.5"></i> 查看摘要与关键词
+            </button>
+            <div class="flex items-center gap-2">
+              <button class="copy-bibtex-btn px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-mono flex items-center gap-1 transition-colors" data-bibtex="@article{chen2023data, title={数据产权结构的‘三权分置’法理逻辑与制度供给}, author={陈法学}, journal={法学研究}, number={2}, pages={82--101}, year={2023}}">
+                <i data-lucide="copy" class="w-3 h-3"></i> BibTeX
+              </button>
+              <a href="#" class="px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-mono flex items-center gap-1 transition-colors">
+                <i data-lucide="external-link" class="w-3 h-3"></i> CNKI
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Paper 4 -->
+        <article class="academic-card p-5 sm:p-6 pub-card" data-category="cyber-security jurisprudence">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="badge-academic badge-cssci">CSSCI 核心期刊</span>
+              <span class="text-xs font-mono text-slate-400">2022 · 独立作者</span>
+            </div>
+            <span class="text-xs font-mono text-slate-400">《中外法学》2022年第5期</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-serif font-bold text-slate-900 leading-snug">
+            数字主权的法理辨析与跨国数据流动治理的秩序构建
+          </h3>
+          <p class="text-xs sm:text-sm font-sans text-slate-600 mt-1">
+            《中外法学》2022年第5期，第1235-1254页
+          </p>
+
+          <p class="text-xs sm:text-sm text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+            探讨网络主权在数据空间中的延伸与边界，反思传统属地管辖原则在分布式网络环境下的局限，提出“主权可控、安全流动、协同共治”的数据治理方案。
+          </p>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 mt-4 pt-3 border-t border-slate-100 text-xs">
+            <button class="view-abstract-btn text-slate-700 hover:text-blue-700 font-medium flex items-center gap-1" data-paper-id="p1">
+              <i data-lucide="align-left" class="w-3.5 h-3.5"></i> 查看摘要与关键词
+            </button>
+            <div class="flex items-center gap-2">
+              <button class="copy-bibtex-btn px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 font-mono flex items-center gap-1 transition-colors" data-bibtex="@article{chen2022sovereignty, title={数字主权的法理辨析与跨国数据流动治理的秩序构建}, author={陈法学}, journal={中外法学}, number={5}, year={2022}}">
+                <i data-lucide="copy" class="w-3 h-3"></i> BibTeX
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       4. RESEARCH PROJECTS (主持与参与科研项目)
+       ========================================================================= -->
+  <section id="projects" class="py-16 sm:py-20 border-b border-slate-200/80 bg-[#f8fafc]/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10">
+        <span class="section-tag mb-2">RESEARCH GRANTS</span>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">主持科研项目</h2>
+        <p class="mt-1 text-slate-500 text-sm">承担国家级重大研究项目、部委委托课题及跨学科前沿基金。</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Project 1 -->
+        <div class="academic-card p-6 bg-white">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-xs font-mono font-semibold text-slate-800 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
+              国家社科基金重大项目 · 首席专家
+            </span>
+            <span class="badge-academic badge-status-ongoing">在研 (2023-2027)</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-serif font-bold text-slate-900 mb-2">
+            生成式人工智能时代算法伦理风险评估与全流程法律规制体系研究
+          </h3>
+          <p class="text-xs font-mono text-slate-400 mb-3">项目编号：23&amp;ZD186 | 资助单位：全国哲学社会科学工作办公室</p>
+
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            联合计算机科学、社会学等跨学科团队，开展算法透明度评估与全生命周期监管工具研究，为相关法律法规制定提供理论支撑与制度建议。
+          </p>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="academic-card p-6 bg-white">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-xs font-mono font-semibold text-slate-800 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
+              教育部人文社科重点基地重大项目
+            </span>
+            <span class="badge-academic badge-status-done">已结项 (优秀)</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-serif font-bold text-slate-900 mb-2">
+            数据要素市场化配置中的产权界定、流通交易与反垄断规制研究
+          </h3>
+          <p class="text-xs font-mono text-slate-400 mb-3">项目编号：20JJD820015 | 资助单位：教育部社会科学司</p>
+
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            研究数据从“资源”向“资产”转化的权利架构，探讨平台数据要素竞争与反垄断规制进路，出版学术专著1部，发表核心论文8篇。
+          </p>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="academic-card p-6 bg-white">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-xs font-mono font-semibold text-slate-800 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
+              最高人民法院司法研究重大课题
+            </span>
+            <span class="badge-academic badge-status-done">已结项</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-serif font-bold text-slate-900 mb-2">
+            涉人工智能及网络侵权新型纠纷裁判规则与司法实证大数据研究
+          </h3>
+          <p class="text-xs font-mono text-slate-400 mb-3">项目编号：ZGFYZD2022-09 | 委托单位：最高人民法院审判委员会</p>
+
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            调取分析近年来网络侵权典型判决，梳理深度合成名誉权侵害、数据抓取等类型化裁判规则，为司法指导性案例与审判业务指导提供参考。
+          </p>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="academic-card p-6 bg-white">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-xs font-mono font-semibold text-slate-800 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
+              国家自然科学基金与社科交叉联合专项
+            </span>
+            <span class="badge-academic badge-status-ongoing">在研 (2024-2026)</span>
+          </div>
+
+          <h3 class="text-base sm:text-lg font-serif font-bold text-slate-900 mb-2">
+            计算法学视域下司法判决一致性检测与可解释性推理方法研究
+          </h3>
+          <p class="text-xs font-mono text-slate-400 mb-3">项目编号：NSFC-CSS249102 | 合作单位：高校计算机学院</p>
+
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            探索法学逻辑知识图谱与自然语言处理技术结合，研究类案检索与同案同判辅助审查中的可解释性分析模型。
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       5. PUBLIC SERVICE & POLICY ADVISING (社会服务与决策咨询)
+       ========================================================================= -->
+  <section id="engagement" class="py-16 sm:py-20 border-b border-slate-200/80 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10">
+        <span class="section-tag mb-2">PUBLIC SERVICE</span>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">社会服务与决策咨询</h2>
+        <p class="mt-1 text-slate-500 text-sm">积极参与国家立法咨询、司法实务专家论证与学术公益讲座。</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
+          <div class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-4">
+            <i data-lucide="scale" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-serif font-bold text-base text-slate-900 mb-2">立法咨询与论证研讨</h3>
+          <p class="text-xs text-slate-500 mb-3">Legislative Consultations</p>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>参与全国人大常委会法工委《人工智能法》学者建议稿起草与立法研讨工作。</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>参加国家网信办关于《生成式人工智能服务管理暂行办法》专家咨询研讨。</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>受聘担任省人大常委会立法咨询专家。</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
+          <div class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-4">
+            <i data-lucide="file-check" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-serif font-bold text-base text-slate-900 mb-2">政策咨询与智库建议</h3>
+          <p class="text-xs text-slate-500 mb-3">Policy Briefs</p>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>撰写关于大模型算法安全风险与法治应对的咨询报告，获有关部门参考采纳。</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>提交关于明确数据资产登记确权规程的政策建议。</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>多篇内参建言转化为行业标准或监管指导参考。</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-6 rounded-xl bg-slate-50 border border-slate-200/80">
+          <div class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-4">
+            <i data-lucide="globe-2" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-serif font-bold text-base text-slate-900 mb-2">学术普及与交流</h3>
+          <p class="text-xs text-slate-500 mb-3">Public Academic Discourse</p>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>受邀在联合国教科文组织（UNESCO）相关学术论坛作专题发言。</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>主讲数字法治专题公开课，面向高校学生与法律实务工作者普法。</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-slate-400">·</span>
+              <span>在《法治日报》《光明日报》理论版发表多篇法治评论文章。</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       6. HONORS & AWARDS (荣誉奖项与表彰)
+       ========================================================================= -->
+  <section id="awards" class="py-16 sm:py-20 border-b border-slate-200/80 bg-[#f8fafc]/60">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10">
+        <span class="section-tag mb-2">HONORS &amp; AWARDS</span>
+        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-slate-900">荣誉奖项</h2>
+        <p class="mt-1 text-slate-500 text-sm">主要学术奖励与人才计划入选记录。</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        
+        <div class="p-5 rounded-xl bg-white border border-slate-200 flex items-start gap-4">
+          <div class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded mt-0.5">2024</div>
+          <div>
+            <h3 class="font-serif font-bold text-slate-900 text-base">教育部第九届高等学校科学研究优秀成果奖（人文社会科学）一等奖</h3>
+            <p class="text-xs text-slate-500 mt-1">获奖著作：《数字法学导论》（教育部颁发）</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-white border border-slate-200 flex items-start gap-4">
+          <div class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded mt-0.5">2023</div>
+          <div>
+            <h3 class="font-serif font-bold text-slate-900 text-base">国家级高层次人才计划青年学者</h3>
+            <p class="text-xs text-slate-500 mt-1">哲学社会科学领域青年拔尖人才</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-white border border-slate-200 flex items-start gap-4">
+          <div class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded mt-0.5">2022</div>
+          <div>
+            <h3 class="font-serif font-bold text-slate-900 text-base">第九届钱端升法学研究成果奖 一等奖</h3>
+            <p class="text-xs text-slate-500 mt-1">获奖成果：数据产权法理逻辑系列论文（钱端升法学研究成果奖基金会）</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-white border border-slate-200 flex items-start gap-4">
+          <div class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded mt-0.5">2021</div>
+          <div>
+            <h3 class="font-serif font-bold text-slate-900 text-base">全国杰出青年法学家提名奖</h3>
+            <p class="text-xs text-slate-500 mt-1">中国法学会组织评选</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-white border border-slate-200 flex items-start gap-4">
+          <div class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded mt-0.5">2020</div>
+          <div>
+            <h3 class="font-serif font-bold text-slate-900 text-base">省哲学社会科学优秀成果奖 一等奖</h3>
+            <p class="text-xs text-slate-500 mt-1">获奖成果：网络平台竞争与反垄断规制专著（省人民政府颁发）</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-xl bg-white border border-slate-200 flex items-start gap-4">
+          <div class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded mt-0.5">2023</div>
+          <div>
+            <h3 class="font-serif font-bold text-slate-900 text-base">高校教师教学创新大赛 一等奖</h3>
+            <p class="text-xs text-slate-500 mt-1">主讲课程：《人工智能法学前沿专题》</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       7. RESEARCH CHARACTERISTICS & QUANTITATIVE SUMMARY (研究特色、学术理念与成果总结)
+       （根据要求：治学理念与成果数量总结移至此处）
+       ========================================================================= -->
+  <section id="philosophy" class="py-16 sm:py-20 border-b border-slate-200/80 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Academic Vision Statement (Moved from Hero to here) -->
+      <div class="p-8 sm:p-10 rounded-2xl bg-slate-900 text-white mb-12">
+        <div class="max-w-3xl">
+          <span class="text-xs font-mono tracking-widest uppercase text-slate-400 block mb-2">RESEARCH PHILOSOPHY</span>
+          <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white leading-relaxed">
+            “以法治理性回应技术演进，以数字正义守护人类尊严。”
+          </h2>
+          <p class="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            在治学过程中，坚持立足中国法治实践与科技发展实际，注重法学规范理论与前沿技术运行机理的深度结合，倡导以规范价值、实证数据与制度构建相协同的研究范式，服务国家数字时代法治建设。
+          </p>
+        </div>
+
+        <!-- Quantitative Output Summary (Moved from Hero to here) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-800">
+          <div>
+            <div class="text-2xl sm:text-3xl font-serif font-bold text-white stat-number" data-target="60" data-suffix="+">0</div>
+            <div class="text-xs text-slate-400 mt-1">CSSCI / SSCI 核心论文</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-serif font-bold text-white stat-number" data-target="15" data-suffix="+">0</div>
+            <div class="text-xs text-slate-400 mt-1">主持及参与科研项目</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-serif font-bold text-white stat-number" data-target="22" data-suffix="项">0</div>
+            <div class="text-xs text-slate-400 mt-1">立法咨询与政策建言</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-serif font-bold text-white stat-number" data-target="1500" data-suffix="+">0</div>
+            <div class="text-xs text-slate-400 mt-1">学术总引用频次</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Research Methods & Strengths -->
+      <div>
+        <h3 class="text-xl font-serif font-bold text-slate-900 mb-6">主要研究特色与方法路径</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <div class="font-serif font-bold text-base text-slate-900 mb-2">1. 理论规范与技术机理的深度交叉</div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              注重对大模型架构、算法决策流程与数据隐私计算等底层技术逻辑的准确理解，力求使法学规范分析精准对应技术运行环节，避免空泛推演。
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <div class="font-serif font-bold text-base text-slate-900 mb-2">2. 实证研究与计算法学工具的应用</div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              运用裁判文书数据挖掘与计量实证分析方法，对网络侵权、算法歧视等新型纠纷进行量化检视，为规范研究提供扎实的数据经验支撑。
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <div class="font-serif font-bold text-base text-slate-900 mb-2">3. 紧密对接国家立法与制度供给需求</div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              科研工作紧跟国家数字经济与人工智能治理的顶层战略部署，多项研究成果直接转化为法律草案研讨意见与司法审判实务参考。
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <div class="font-serif font-bold text-base text-slate-900 mb-2">4. 开放的国际学术对话与比较研究</div>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              在国内外法学期刊保持常态化学术发表，跟踪国际前沿立法动态，积极参与全球人工智能伦理与跨境数据治理多边对话。
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       8. FULLSCREEN CONTACT & CLOSING SECTION (底部联系方式模块 - 整屏收尾页)
+       ========================================================================= -->
+  <footer id="contact" class="min-h-screen relative flex flex-col justify-between pt-20 pb-12 bg-slate-900 text-white">
+    
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center">
+      
+      <!-- Top Closing Headline -->
+      <div class="max-w-3xl mb-12">
+        <span class="text-xs font-mono uppercase tracking-widest text-slate-400 block mb-2">CONTACT &amp; COLLABORATION</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+          联系方式与学术交流
+        </h2>
+        <p class="mt-3 text-slate-400 text-sm sm:text-base">
+          欢迎国内外同行学者开展学术研讨、联合课题攻关，以及优秀硕博研究生与博士后报考咨询。
+        </p>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        <!-- Left: Contact Details -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="space-y-4">
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0 text-slate-300">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <div class="text-xs font-mono text-slate-400 uppercase">学术联络邮箱 (Email)</div>
+                <a href="mailto:chen_legal@univ.edu.cn" class="text-base font-mono text-white hover:text-slate-300 transition-colors">
+                  chen_legal@univ.edu.cn
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0 text-slate-300">
+                <i data-lucide="building" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <div class="text-xs font-mono text-slate-400 uppercase">办公地址 (Office)</div>
+                <p class="text-sm text-slate-200">法学院大楼 712 室 · 数字法治研究院</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center flex-shrink-0 text-slate-300">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <div class="text-xs font-mono text-slate-400 uppercase">学生答疑时间 (Office Hours)</div>
+                <p class="text-sm text-slate-200">每周四 14:00 - 17:00（请提前邮件预约）</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic CV & External Links -->
+          <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-2.5">
+            <a href="#" class="px-4 py-2 rounded-lg bg-white text-slate-900 hover:bg-slate-100 text-xs font-medium flex items-center gap-1.5 transition-colors">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>下载个人学术简历 (CV PDF)</span>
+            </a>
+            <a href="#" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono flex items-center gap-1.5 transition-colors border border-slate-700">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              <span>知网学者库</span>
+            </a>
+            <a href="#" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono flex items-center gap-1.5 transition-colors border border-slate-700">
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+              <span>SSRN 主页</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right: Clean Message Form -->
+        <div class="lg:col-span-7">
+          <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-6 sm:p-7 shadow-lg">
+            <h3 class="text-base font-serif font-bold text-white mb-1 flex items-center gap-2">
+              <i data-lucide="send" class="w-4 h-4 text-slate-400"></i>
+              <span>发送学术交流留言</span>
+            </h3>
+            <p class="text-xs text-slate-400 mb-5">留言将通过学术邮件系统转交学者或研究助理处理。</p>
+
+            <form id="contact-form" class="space-y-3.5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label class="block text-xs text-slate-300 mb-1">您的姓名 *</label>
+                  <input type="text" required placeholder="如：李老师、王同学" class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-slate-400">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-300 mb-1">联系邮箱 *</label>
+                  <input type="email" required placeholder="name@univ.edu.cn" class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-slate-400">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label class="block text-xs text-slate-300 mb-1">工作单位 / 院校</label>
+                  <input type="text" placeholder="如：XX大学法学院" class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-slate-400">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-300 mb-1">事由分类</label>
+                  <select class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white text-xs focus:outline-none focus:border-slate-400">
+                    <option value="academic">学术研讨 / 论文交流</option>
+                    <option value="cooperation">课题合作 / 咨询论证</option>
+                    <option value="student">硕博报考 / 博士后进站</option>
+                    <option value="lecture">学术讲座邀请</option>
+                    <option value="other">其他事项</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs text-slate-300 mb-1">留言内容 *</label>
+                <textarea rows="3" required placeholder="请简要陈述交流意向或具体事项..." class="w-full px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-slate-400 resize-none"></textarea>
+              </div>
+
+              <div>
+                <button type="submit" class="w-full py-2.5 px-4 rounded-lg bg-slate-100 hover:bg-white text-slate-900 font-medium text-xs transition-colors flex items-center justify-center gap-1.5">
+                  <span>提交留言</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer Note -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-12 pt-6 border-t border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        <span>© 2026 陈法学 教授 · 个人学术主页</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-500 font-mono text-[11px]">
+        <span>法学院 · 数字法治研究院</span>
+        <a href="#about" class="hover:text-slate-300 transition-colors">返回顶部 ↑</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =========================================================================
+       MODAL: ABSTRACT & CONCLUSION VIEWER
+       ========================================================================= -->
+  <div id="abstract-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-200">
+    <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm"></div>
+    <div class="modal-content relative bg-white w-full max-w-xl rounded-xl shadow-xl border border-slate-200 overflow-hidden transform scale-95 transition-transform duration-200 z-10 max-h-[85vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-100 flex items-start justify-between gap-4 bg-slate-50">
+        <div>
+          <span class="text-xs font-mono text-slate-500">论文摘要详情</span>
+          <h3 id="modal-title" class="text-base font-serif font-bold text-slate-900 mt-1 leading-snug">
+            论文标题加载中...
+          </h3>
+          <p id="modal-journal" class="text-xs font-sans text-slate-600 mt-0.5">期刊名称</p>
+        </div>
+        <button id="modal-close-btn" class="p-1 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-200 flex-shrink-0">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="px-6 py-5 overflow-y-auto space-y-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+        <div>
+          <div class="text-[11px] font-mono text-slate-400 uppercase mb-0.5">DOI / 索引号</div>
+          <p id="modal-doi" class="text-xs font-mono text-slate-700 bg-slate-100 p-1.5 rounded">N/A</p>
+        </div>
+
+        <div>
+          <div class="text-[11px] font-mono text-slate-400 uppercase mb-0.5">论文摘要 (Abstract)</div>
+          <p id="modal-abstract" class="text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-100 leading-relaxed text-xs sm:text-sm">
+            摘要内容加载中...
+          </p>
+        </div>
+
+        <div>
+          <div class="text-[11px] font-mono text-slate-400 uppercase mb-0.5">关键词 (Keywords)</div>
+          <p id="modal-keywords" class="text-xs text-slate-800 font-medium">生成式AI；著作权侵权；合理使用；算法透明度；数据要素</p>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3 border-t border-slate-100 bg-slate-50 flex items-center justify-between">
+        <button id="modal-copy-bib" class="copy-bibtex-btn px-3 py-1.5 rounded text-xs font-mono bg-slate-900 hover:bg-slate-800 text-white flex items-center gap-1.5 transition-colors">
+          <i data-lucide="copy" class="w-3 h-3"></i> 复制 BibTeX 引用
+        </button>
+        <button onclick="document.getElementById('modal-close-btn').click()" class="px-3 py-1.5 rounded text-xs font-medium text-slate-600 hover:text-slate-900">
+          关闭
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       TOAST NOTIFICATION
+       ========================================================================= -->
+  <div id="toast" class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-900 text-white text-xs font-medium shadow-lg border border-slate-700">
+    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 flex-shrink-0"></i>
+    <span id="toast-msg">已成功复制到剪贴板</span>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>
