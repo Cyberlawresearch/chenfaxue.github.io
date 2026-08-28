@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="陈法学教授个人学术主页 V2：人工智能法学、数据法、网络法与数字法治研究。">
+  <meta name="author" content="陈法学 Prof. Faxue Chen">
+  <title>陈法学 教授｜个人学术主页 V2</title>
+  <script src="js/lucide.min.js"></script>
+  <style>
+    :root {
+      --blue:#002fa7;
+      --blue-dark:#001f72;
+      --blue-soft:#eef4ff;
+      --orange:#e85d0f;
+      --orange-soft:#fff4ea;
+      --ink:#0f172a;
+      --text:#334155;
+      --muted:#64748b;
+      --line:#dfe6ef;
+      --line-dark:#cbd5e1;
+      --paper:#ffffff;
+      --page:#f6f8fb;
+      --serif:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC",Georgia,serif;
+      --sans:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans SC",Arial,sans-serif;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+      --shadow:0 18px 45px rgba(15,23,42,.08);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 8% 6%,rgba(0,47,167,.05),transparent 24rem),
+        radial-gradient(circle at 92% 30%,rgba(232,93,15,.035),transparent 20rem),
+        var(--page);
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.7;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+    img{max-width:100%;display:block}
+    strong{color:var(--ink)}
+
+    .container{width:min(1160px,calc(100% - 40px));margin:0 auto}
+    .eyebrow{
+      display:flex;align-items:center;gap:9px;
+      color:var(--blue);font:700 12px/1 var(--mono);
+      letter-spacing:.12em;text-transform:uppercase;
+    }
+    .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
+    .section-title{font:700 clamp(27px,3vw,38px)/1.22 var(--serif);margin:10px 0 0;letter-spacing:-.025em}
+    .section-intro{color:var(--muted);font-size:14px;max-width:720px;margin:14px 0 0}
+    .section{padding:64px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:30px}
+    .section-index{font:600 11px/1 var(--mono);letter-spacing:.12em;color:#94a3b8}
+
+    /* top nav */
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.91);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(203,213,225,.75);
+    }
+    .nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;min-width:max-content}
+    .brand-mark{
+      width:36px;height:36px;border-radius:11px;background:var(--blue);
+      display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,47,167,.2)
+    }
+    .brand-mark img{width:24px;height:24px;object-fit:contain}
+    .brand-cn{font:700 17px/1.1 var(--serif)}
+    .brand-en{font:600 9px/1 var(--mono);letter-spacing:.09em;color:var(--blue);margin-top:4px}
+    .nav-links{display:flex;align-items:center;gap:4px;color:var(--text);font-size:13px}
+    .nav-links a{padding:8px 10px;border-radius:8px;transition:.2s ease}
+    .nav-links a:hover,.nav-links a.active{color:var(--blue);background:var(--blue-soft)}
+    .nav-cta{padding:9px 15px;border-radius:999px;background:var(--blue);color:#fff!important;font-weight:700}
+    .nav-cta:hover{background:var(--blue-dark)!important}
+    .menu-btn{display:none;border:0;background:transparent;padding:8px;color:var(--ink)}
+
+    /* hero */
+    .hero{padding:62px 0 52px}
+    .hero-grid{display:grid;grid-template-columns:300px 1fr;gap:62px;align-items:center}
+    .portrait-shell{position:relative;max-width:300px}
+    .portrait-shell::before{
+      content:"";position:absolute;inset:16px -14px -14px 16px;
+      border:1px solid rgba(0,47,167,.27);border-radius:145px 145px 24px 24px;z-index:0
+    }
+    .portrait{
+      position:relative;z-index:1;overflow:hidden;border-radius:142px 142px 22px 22px;
+      background:#dbe4f4;box-shadow:var(--shadow)
+    }
+    .portrait img{width:100%;aspect-ratio:3/4;object-fit:cover}
+    .portrait-meta{
+      position:absolute;left:-22px;bottom:24px;z-index:3;background:rgba(255,255,255,.96);
+      border:1px solid var(--line);border-left:4px solid var(--orange);padding:11px 14px;border-radius:10px;
+      box-shadow:0 12px 30px rgba(15,23,42,.12);font-size:12px;color:var(--text)
+    }
+    .portrait-meta b{display:block;color:var(--ink);font-size:13px}
+    .hero-copy{padding:8px 0}
+    .hero-kicker{display:flex;align-items:center;gap:10px;color:var(--blue);font:700 12px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+    .hero-kicker span{width:28px;height:2px;background:var(--orange)}
+    .hero h1{font:700 clamp(45px,6vw,72px)/1.02 var(--serif);letter-spacing:-.045em;margin:16px 0 7px}
+    .hero-en{font:600 13px/1.4 var(--mono);letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
+    .hero-roles{font:600 18px/1.65 var(--serif);margin:18px 0 0;color:#1e293b}
+    .hero-summary{font-size:16px;color:var(--text);max-width:760px;margin:17px 0 0;line-height:1.95}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+    .tag{font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--text)}
+    .tag.primary{color:var(--blue);background:var(--blue-soft);border-color:#c7d7ff;font-weight:700}
+    .tag.accent{color:#bd4b0a;background:var(--orange-soft);border-color:#ffd4b7;font-weight:700}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:10px;font-size:13px;font-weight:700;border:1px solid var(--line-dark);background:#fff;transition:.2s ease}
+    .btn:hover{transform:translateY(-1px);border-color:var(--blue);color:var(--blue)}
+    .btn.primary{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 10px 24px rgba(0,47,167,.18)}
+    .btn.primary:hover{background:var(--blue-dark);color:#fff}
+
+    /* metric rail */
+    .metric-rail{margin-top:48px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
+    .metric{padding:20px 22px;border-right:1px solid var(--line)}
+    .metric:last-child{border-right:0}
+    .metric-value{font:700 27px/1 var(--serif);color:var(--blue)}
+    .metric:nth-child(2) .metric-value,.metric:nth-child(4) .metric-value{color:var(--orange)}
+    .metric-label{font-size:11px;color:var(--muted);margin-top:7px}
+
+    /* editorial split */
+    .bio-grid{display:grid;grid-template-columns:1.55fr .85fr;gap:52px}
+    .bio-copy{font-size:15px;color:var(--text);line-height:2}
+    .bio-copy p{margin:0 0 17px}
+    .research-note{padding-left:22px;border-left:3px solid var(--blue)}
+    .research-note blockquote{font:600 21px/1.75 var(--serif);margin:0;color:#1e293b}
+    .research-note small{display:block;color:var(--muted);margin-top:14px;font-size:12px}
+
+    /* featured books */
+    .book-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .book{
+      display:grid;grid-template-columns:94px 1fr;gap:20px;padding:22px;
+      background:var(--paper);border:1px solid var(--line);border-radius:14px;transition:.2s ease
+    }
+    .book:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(15,23,42,.07);border-color:#c9d6ee}
+    .book-cover{width:94px;height:132px;border-radius:3px 7px 7px 3px;overflow:hidden;box-shadow:6px 9px 20px rgba(15,23,42,.16)}
+    .book-cover img{width:100%;height:100%;object-fit:cover}
+    .book-award{font:700 10px/1.4 var(--mono);color:var(--blue);letter-spacing:.03em}
+    .book:nth-child(2) .book-award{color:var(--orange)}
+    .book h3{font:700 20px/1.35 var(--serif);margin:8px 0 4px}
+    .book-meta{font-size:12px;color:var(--muted)}
+    .book-desc{font-size:13px;color:var(--text);line-height:1.75;margin:10px 0 0}
+
+    /* publications */
+    .pub-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 22px}
+    .pub-tab{border:0;background:transparent;padding:8px 11px;border-radius:8px;color:var(--muted);font-size:12px;cursor:pointer}
+    .pub-tab:hover,.pub-tab.active{background:var(--blue-soft);color:var(--blue);font-weight:700}
+    .pub-list{border-top:1px solid var(--line)}
+    .pub{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid var(--line)}
+    .pub-no{font:700 12px/1.5 var(--mono);color:var(--blue);padding-top:4px}
+    .pub-badges{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:7px}
+    .badge{font:700 10px/1 var(--mono);padding:5px 7px;border-radius:5px;background:#f1f5f9;color:var(--text)}
+    .badge.blue{background:var(--blue-soft);color:var(--blue)}
+    .badge.orange{background:var(--orange-soft);color:#bd4b0a}
+    .pub-year{font:600 10px/1 var(--mono);color:#94a3b8}
+    .pub h3{font:700 18px/1.55 var(--serif);margin:0;color:var(--ink)}
+    .pub-source{font-size:12.5px;color:var(--muted);margin-top:5px}
+    .pub-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+    .text-action{border:0;background:transparent;padding:0;color:var(--blue);font-size:11px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px}
+    .text-action.secondary{color:var(--muted)}
+    .text-action:hover{text-decoration:underline}
+
+    /* timeline projects */
+    .timeline{position:relative;margin-top:8px}
+    .timeline::before{content:"";position:absolute;left:88px;top:10px;bottom:12px;width:1px;background:var(--line-dark)}
+    .project{display:grid;grid-template-columns:72px 1fr;gap:34px;padding:0 0 30px;position:relative}
+    .project:last-child{padding-bottom:0}
+    .project-year{font:700 12px/1.4 var(--mono);color:var(--blue);text-align:right;padding-top:4px}
+    .project-body{position:relative;padding-left:22px}
+    .project-body::before{content:"";position:absolute;left:-18px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:3px solid var(--blue)}
+    .project:nth-child(2) .project-body::before{border-color:var(--orange)}
+    .project-type{font:700 10px/1.3 var(--mono);letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+    .project h3{font:700 18px/1.45 var(--serif);margin:6px 0 5px}
+    .project p{font-size:13px;color:var(--muted);margin:0;line-height:1.75}
+
+    /* service */
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .service{padding-top:18px;border-top:3px solid var(--blue)}
+    .service:nth-child(2){border-top-color:var(--orange)}
+    .service:nth-child(3){border-top-color:#64748b}
+    .service-icon{width:38px;height:38px;border-radius:10px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;margin-bottom:13px}
+    .service:nth-child(2) .service-icon{background:var(--orange-soft);color:var(--orange)}
+    .service:nth-child(3) .service-icon{background:#f1f5f9;color:#475569}
+    .service h3{font:700 17px/1.4 var(--serif);margin:0}
+    .service p{font-size:13px;color:var(--muted);line-height:1.8;margin:9px 0 0}
+
+    /* contact */
+    .contact-panel{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:36px;padding:34px;
+      border-radius:18px;background:var(--blue);color:#fff;position:relative;overflow:hidden
+    }
+    .contact-panel::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-100px;top:-120px;border:54px solid rgba(255,255,255,.07)}
+    .contact-panel .eyebrow{color:#fff}.contact-panel .eyebrow::before{background:#ff8a3d}
+    .contact-panel h2{font:700 34px/1.25 var(--serif);margin:12px 0 0}
+    .contact-panel p{color:#dbe7ff;font-size:14px;line-height:1.85;max-width:650px}
+    .contact-links{display:grid;gap:10px;align-content:center;position:relative;z-index:2}
+    .contact-link{display:flex;align-items:center;gap:11px;padding:13px 15px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:rgba(255,255,255,.07);font-size:13px}
+    .contact-link b{color:#fff}.contact-link span{color:#cfe0ff;font-size:11px;display:block}
+
+    footer{padding:30px 0 42px;color:var(--muted);font-size:11px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .footer-brand{color:var(--ink);font-weight:700}
+
+    /* modal */
+    .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+    .modal.show{display:flex}
+    .modal-backdrop{position:absolute;inset:0;background:rgba(15,23,42,.48);backdrop-filter:blur(6px)}
+    .modal-card{position:relative;z-index:1;width:min(660px,100%);max-height:84vh;overflow:auto;background:#fff;border-radius:16px;box-shadow:0 30px 90px rgba(15,23,42,.28)}
+    .modal-head{display:flex;justify-content:space-between;gap:20px;padding:23px 24px;border-bottom:1px solid var(--line)}
+    .modal-head h3{font:700 20px/1.45 var(--serif);margin:5px 0 0}
+    .modal-close{border:0;background:#f1f5f9;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;cursor:pointer}
+    .modal-body{padding:22px 24px 26px;color:var(--text);font-size:13px;line-height:1.9}
+    .modal-label{font:700 10px/1 var(--mono);color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin:18px 0 8px}
+    .modal-label:first-child{margin-top:0}
+    .modal-box{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:14px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .nav-links{display:none}
+      .menu-btn{display:block}
+      .nav.mobile-open{height:auto;align-items:flex-start;padding:16px 0;flex-wrap:wrap}
+      .nav.mobile-open .nav-links{display:flex;order:3;width:100%;flex-direction:column;align-items:stretch;padding:8px 0 2px}
+      .hero-grid{grid-template-columns:230px 1fr;gap:38px}
+      .portrait-shell{max-width:230px}
+      .portrait-meta{left:-10px}
+      .bio-grid{grid-template-columns:1fr;gap:28px}
+      .service-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:720px){
+      .container{width:min(100% - 28px,1160px)}
+      .hero{padding:38px 0 34px}
+      .hero-grid{grid-template-columns:1fr;gap:30px}
+      .portrait-shell{width:205px;margin:0 auto}
+      .portrait-meta{left:-20px;bottom:18px;padding:8px 10px;font-size:10px}
+      .portrait-meta b{font-size:11px}
+      .hero-copy{text-align:center}
+      .hero-kicker,.tags,.hero-actions{justify-content:center}
+      .hero h1{font-size:48px}
+      .hero-summary{font-size:14px;text-align:left}
+      .metric-rail{grid-template-columns:1fr 1fr}
+      .metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .section{padding:48px 0}
+      .section-head{align-items:flex-start;margin-bottom:24px}
+      .section-index{display:none}
+      .book-grid{grid-template-columns:1fr}
+      .book{grid-template-columns:78px 1fr;gap:16px;padding:18px}
+      .book-cover{width:78px;height:110px}
+      .pub{grid-template-columns:38px 1fr;gap:10px}
+      .timeline::before{left:68px}
+      .project{grid-template-columns:52px 1fr;gap:30px}
+      .project-body{padding-left:18px}.project-body::before{left:-17px}
+      .service-grid{grid-template-columns:1fr}
+      .contact-panel{grid-template-columns:1fr;padding:26px}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.book{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav" id="nav">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark"><img src="assets/scales-icon.svg" alt=""></span>
+        <span>
+          <span class="brand-cn">陈法学</span>
+          <span class="brand-en">PROF. FAXUE CHEN</span>
+        </span>
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="页面导航">
+        <a href="#about">简介</a>
+        <a href="#books">专著</a>
+        <a href="#publications">论文</a>
+        <a href="#projects">项目</a>
+        <a href="#service">学术服务</a>
+        <a href="#contact" class="nav-cta">联系</a>
+      </nav>
+      <button class="menu-btn" id="menu-btn" aria-label="打开菜单"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="portrait-shell">
+            <div class="portrait"><img src="assets/portrait.jpg" alt="陈法学教授肖像"></div>
+            <div class="portrait-meta"><b>法学博士 · 教授</b>博士生导师 / 数字法治研究院</div>
+          </div>
+          <div class="hero-copy">
+            <div class="hero-kicker"><span></span>Law · Technology · Governance</div>
+            <h1>陈法学</h1>
+            <div class="hero-en">Prof. Faxue Chen, Ph.D.</div>
+            <div class="hero-roles">法学院教授、博士生导师<br>数字法治研究院执行院长</div>
+            <p class="hero-summary">主要从事<strong>人工智能法学、数据要素与个人信息保护、网络与平台治理、计算法学与法理学</strong>研究，关注技术变迁如何重塑权力结构、权利保障与法律制度。</p>
+            <div class="tags">
+              <span class="tag primary">人工智能与算法治理</span>
+              <span class="tag accent">数据法与个人信息保护</span>
+              <span class="tag">网络与平台治理</span>
+              <span class="tag">计算法学</span>
+            </div>
+            <div class="hero-actions">
+              <a class="btn primary" href="assets/Chen_Faxue_Academic_CV.pdf" target="_blank"><i data-lucide="file-down" size="16"></i>学术简历 CV</a>
+              <a class="btn" href="#publications"><i data-lucide="library" size="16"></i>代表论著</a>
+              <a class="btn" href="#contact"><i data-lucide="mail" size="16"></i>学术联系</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="metric-rail" aria-label="学术概览">
+          <div class="metric"><div class="metric-value">60+</div><div class="metric-label">核心与代表性学术论文</div></div>
+          <div class="metric"><div class="metric-value">4</div><div class="metric-label">出版学术专著</div></div>
+          <div class="metric"><div class="metric-value">15+</div><div class="metric-label">主持科研项目</div></div>
+          <div class="metric"><div class="metric-value">22</div><div class="metric-label">立法咨询与决策建言</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Biography & Research</div><h2 class="section-title">学者简介与研究方向</h2></div>
+          <div class="section-index">01 / PROFILE</div>
+        </div>
+        <div class="bio-grid">
+          <div class="bio-copy">
+            <p>陈法学，法学博士，现任法学院教授、博士生导师，兼任数字法治研究院执行院长。北京大学法学院法学学士、法学博士，牛津大学法律系博士后研究员，曾任剑桥大学劳特派特法学研究中心访问学者。</p>
+            <p>研究工作围绕数字社会中的制度变迁展开，重点讨论人工智能与算法决策、数据要素流通与个人信息保护、平台权力与网络治理等议题。在《中国法学》《法学研究》《中外法学》及国际法与技术期刊发表系列成果，并持续参与数字治理相关立法与政策咨询。</p>
+            <p>在研究方法上，注重规范分析与技术机制之间的衔接，尝试把算法、数据与平台的运行逻辑纳入法学概念体系，在制度可实施性与基本权利保障之间寻找更稳定的解释框架。</p>
+          </div>
+          <aside class="research-note">
+            <blockquote>“技术问题进入法律之后，真正需要解释的并不只是新的工具，而是权力、责任与权利关系发生了怎样的变化。”</blockquote>
+            <small>Research statement · 数字法治研究方法</small>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="books">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Featured Monographs</div><h2 class="section-title">代表性学术专著</h2><p class="section-intro">减少装饰性卡片，将书封、出版信息和学术主题放在同一阅读层级中。</p></div>
+          <div class="section-index">02 / BOOKS</div>
+        </div>
+        <div class="book-grid">
+          <article class="book">
+            <div class="book-cover"><img src="assets/book-cover1.svg" alt="数字法学导论书封"></div>
+            <div><div class="book-award">教育部高校社科成果一等奖</div><h3>《数字法学导论》</h3><div class="book-meta">陈法学 著 · 法律出版社 · 2023</div><p class="book-desc">系统讨论数字技术进入法律体系后的基本概念、制度结构与研究方法，重点回应算法、数据与数字权利等基础问题。</p></div>
+          </article>
+          <article class="book">
+            <div class="book-cover"><img src="assets/book-cover2.svg" alt="数据产权的法理建构书封"></div>
+            <div><div class="book-award">钱端升法学研究成果奖</div><h3>《数据产权的法理建构》</h3><div class="book-meta">陈法学 著 · 北京大学出版社 · 2022</div><p class="book-desc">围绕数据要素的产权配置、使用秩序与流通机制展开，讨论传统所有权范式在数据资源治理中的边界。</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Selected Publications</div><h2 class="section-title">代表性学术论文</h2><p class="section-intro">采用接近学术期刊目录的纵向编排，让题目与出处成为视觉核心。</p></div>
+          <div class="section-index">03 / PUBLICATIONS</div>
+        </div>
+        <div class="pub-tabs" role="tablist">
+          <button class="pub-tab active" data-filter="all">全部</button>
+          <button class="pub-tab" data-filter="ai">人工智能</button>
+          <button class="pub-tab" data-filter="data">数据法</button>
+          <button class="pub-tab" data-filter="platform">网络与平台</button>
+        </div>
+        <div class="pub-list">
+          <article class="pub" data-category="ai">
+            <div class="pub-no">[01]</div><div>
+              <div class="pub-badges"><span class="badge blue">CSSCI</span><span class="badge">CLSCI</span><span class="pub-year">2024 · 独立作者</span></div>
+              <h3>生成式人工智能的知识产权侵权认定与责任边界重构</h3>
+              <div class="pub-source">《中国法学》2024年第3期，第45–68页；《人大复印报刊资料·民商法学》全文转载。</div>
+              <div class="pub-actions"><button class="text-action view-paper" data-paper="p1"><i data-lucide="file-text" size="13"></i>摘要与关键词</button><button class="text-action secondary copy-cite" data-cite="陈法学：《生成式人工智能的知识产权侵权认定与责任边界重构》，《中国法学》2024年第3期。"><i data-lucide="copy" size="13"></i>复制引文</button></div>
+            </div>
+          </article>
+          <article class="pub" data-category="ai platform">
+            <div class="pub-no">[02]</div><div>
+              <div class="pub-badges"><span class="badge orange">SSCI</span><span class="pub-year">2023 · 第一作者</span></div>
+              <h3>Algorithmic Governance and the Rule of Law: Reconceptualizing Due Process in AI-Driven Decisions</h3>
+              <div class="pub-source"><em>Harvard Journal of Law &amp; Technology</em>, Vol. 37, No. 2, pp. 312–354 (2023).</div>
+              <div class="pub-actions"><button class="text-action view-paper" data-paper="p2"><i data-lucide="file-text" size="13"></i>Abstract</button><button class="text-action secondary copy-cite" data-cite="Faxue Chen, Algorithmic Governance and the Rule of Law: Reconceptualizing Due Process in AI-Driven Decisions, Harvard Journal of Law & Technology 37(2) (2023)."><i data-lucide="copy" size="13"></i>Copy citation</button></div>
+            </div>
+          </article>
+          <article class="pub" data-category="data">
+            <div class="pub-no">[03]</div><div>
+              <div class="pub-badges"><span class="badge blue">CSSCI</span><span class="badge">CLSCI</span><span class="pub-year">2023 · 独立作者</span></div>
+              <h3>数据产权结构的“三权分置”法理逻辑与制度供给</h3>
+              <div class="pub-source">《法学研究》2023年第2期，第82–101页；《新华文摘》论点摘编。</div>
+              <div class="pub-actions"><button class="text-action view-paper" data-paper="p3"><i data-lucide="file-text" size="13"></i>摘要与关键词</button><button class="text-action secondary copy-cite" data-cite="陈法学：《数据产权结构的“三权分置”法理逻辑与制度供给》，《法学研究》2023年第2期。"><i data-lucide="copy" size="13"></i>复制引文</button></div>
+            </div>
+          </article>
+          <article class="pub" data-category="platform data">
+            <div class="pub-no">[04]</div><div>
+              <div class="pub-badges"><span class="badge blue">CSSCI</span><span class="pub-year">2022 · 独立作者</span></div>
+              <h3>数字主权的法理辨析与跨国数据流动治理的秩序构建</h3>
+              <div class="pub-source">《中外法学》2022年第5期，第1235–1254页。</div>
+              <div class="pub-actions"><button class="text-action view-paper" data-paper="p4"><i data-lucide="file-text" size="13"></i>摘要与关键词</button><button class="text-action secondary copy-cite" data-cite="陈法学：《数字主权的法理辨析与跨国数据流动治理的秩序构建》，《中外法学》2022年第5期。"><i data-lucide="copy" size="13"></i>复制引文</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Research Grants</div><h2 class="section-title">主持科研项目</h2><p class="section-intro">由“大卡片堆叠”改成学术履历时间轴，突出项目层级和研究主题。</p></div>
+          <div class="section-index">04 / GRANTS</div>
+        </div>
+        <div class="timeline">
+          <article class="project"><div class="project-year">2023—27</div><div class="project-body"><div class="project-type">国家社科基金重大项目 · 首席专家</div><h3>生成式人工智能时代算法伦理风险评估与全流程法律规制体系研究</h3><p>围绕算法透明度、风险评估、全生命周期监管与技术治理工具展开跨学科研究。</p></div></article>
+          <article class="project"><div class="project-year">2020—23</div><div class="project-body"><div class="project-type">教育部人文社科重点研究基地重大项目</div><h3>数据要素市场化配置中的产权界定、流通交易与反垄断规制研究</h3><p>研究数据要素产权配置与竞争秩序，并形成系列论文、专著与政策建议。</p></div></article>
+          <article class="project"><div class="project-year">2019—22</div><div class="project-body"><div class="project-type">国家社科基金一般项目</div><h3>平台经济背景下个人信息权益保护的制度体系研究</h3><p>讨论平台场景下个人信息处理、权利救济与监管责任的制度衔接。</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="service">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow">Academic & Public Engagement</div><h2 class="section-title">学术服务与公共参与</h2></div>
+          <div class="section-index">05 / SERVICE</div>
+        </div>
+        <div class="service-grid">
+          <article class="service"><div class="service-icon"><i data-lucide="scale" size="19"></i></div><h3>学术共同体</h3><p>参与网络与信息法、人工智能治理及数字法治相关研究组织、期刊与学术共同体建设。</p></article>
+          <article class="service"><div class="service-icon"><i data-lucide="landmark" size="19"></i></div><h3>立法与决策咨询</h3><p>围绕人工智能、数据治理、平台规制等议题参与有关部门立法论证、政策研讨与专家咨询。</p></article>
+          <article class="service"><div class="service-icon"><i data-lucide="globe-2" size="19"></i></div><h3>国际学术交流</h3><p>持续开展数字治理比较法研究，并与境外高校、研究机构和学者开展学术访问与合作交流。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div><div class="eyebrow">Contact</div><h2>学术交流与研究合作</h2><p>欢迎围绕人工智能治理、数据法、网络与平台治理及数字法治研究开展学术交流与合作。正式联系建议直接通过邮箱发送事项概要与相关材料。</p></div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:chen_legal@univ.edu.cn"><i data-lucide="mail" size="19"></i><div><b>chen_legal@univ.edu.cn</b><span>Academic correspondence</span></div></a>
+            <div class="contact-link"><i data-lucide="map-pin" size="19"></i><div><b>法学大楼 712 室</b><span>数字法治研究院</span></div></div>
+            <a class="contact-link" href="assets/Chen_Faxue_Academic_CV.pdf" target="_blank"><i data-lucide="file-down" size="19"></i><div><b>下载完整学术简历</b><span>Curriculum Vitae · PDF</span></div></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><div><span class="footer-brand">© 2026 陈法学 Prof. Faxue Chen</span> · Personal Academic Website</div><a href="#top">返回顶部 ↑</a></div></footer>
+
+  <div class="modal" id="paper-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head"><div><div class="eyebrow">Publication Detail</div><h3 id="modal-title">论文详情</h3></div><button class="modal-close" data-close-modal aria-label="关闭"><i data-lucide="x" size="17"></i></button></div>
+      <div class="modal-body"><div class="modal-label">Source</div><div id="modal-source"></div><div class="modal-label">Abstract</div><div class="modal-box" id="modal-abstract"></div><div class="modal-label">Keywords</div><div id="modal-keywords"></div></div>
+    </div>
+  </div>
+
+  <script>
+    const paperData = {
+      p1:{title:'生成式人工智能的知识产权侵权认定与责任边界重构',source:'《中国法学》2024年第3期，第45–68页。',abstract:'文章从训练数据摄入、模型学习与内容生成的连续过程出发，讨论生成式人工智能场景下传统著作权侵权判断规则面临的适用难题，并尝试在技术创新与权利保护之间构造分层责任框架。',keywords:'生成式人工智能；著作权；合理使用；模型训练；责任边界'},
+      p2:{title:'Algorithmic Governance and the Rule of Law: Reconceptualizing Due Process in AI-Driven Decisions',source:'Harvard Journal of Law & Technology, Vol. 37, No. 2 (2023).',abstract:'The article examines how automated decision-making challenges conventional due process and develops a framework centered on explanation, auditability, procedural safeguards, and meaningful human oversight.',keywords:'Algorithmic governance; Due process; Explainable AI; Administrative law'},
+      p3:{title:'数据产权结构的“三权分置”法理逻辑与制度供给',source:'《法学研究》2023年第2期，第82–101页。',abstract:'文章从数据要素的非排他性、可复制性与衍生性出发，分析数据资源持有、加工使用与数据产品经营之间的权利结构，并讨论弱化所有权中心主义后的制度配置路径。',keywords:'数据要素；数据产权；三权分置；数据流通；权利配置'},
+      p4:{title:'数字主权的法理辨析与跨国数据流动治理的秩序构建',source:'《中外法学》2022年第5期，第1235–1254页。',abstract:'文章讨论数字主权概念的规范边界及其与国家管辖、数据跨境流动和全球数字秩序之间的关系，强调应在安全、权利保护与跨境流通之间形成可协调的制度结构。',keywords:'数字主权；数据跨境；国家管辖；全球数字治理'}
+    };
+
+    const nav=document.getElementById('nav');
+    document.getElementById('menu-btn').addEventListener('click',()=>nav.classList.toggle('mobile-open'));
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('mobile-open')));
+
+    const tabs=document.querySelectorAll('.pub-tab');
+    const pubs=document.querySelectorAll('.pub');
+    tabs.forEach(tab=>tab.addEventListener('click',()=>{
+      tabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');
+      const f=tab.dataset.filter;
+      pubs.forEach(p=>p.style.display=(f==='all'||p.dataset.category.split(' ').includes(f))?'grid':'none');
+    }));
+
+    const modal=document.getElementById('paper-modal');
+    document.querySelectorAll('.view-paper').forEach(btn=>btn.addEventListener('click',()=>{
+      const d=paperData[btn.dataset.paper];
+      document.getElementById('modal-title').textContent=d.title;
+      document.getElementById('modal-source').textContent=d.source;
+      document.getElementById('modal-abstract').textContent=d.abstract;
+      document.getElementById('modal-keywords').textContent=d.keywords;
+      modal.classList.add('show');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    }));
+    document.querySelectorAll('[data-close-modal]').forEach(el=>el.addEventListener('click',()=>{modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';}));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('show'))document.querySelector('[data-close-modal]').click();});
+
+    document.querySelectorAll('.copy-cite').forEach(btn=>btn.addEventListener('click',async()=>{
+      try{await navigator.clipboard.writeText(btn.dataset.cite);const old=btn.innerHTML;btn.textContent='✓ 已复制';setTimeout(()=>{btn.innerHTML=old;lucide.createIcons();},1400);}catch(e){alert('复制失败，请手动复制。');}
+    }));
+
+    const sections=[...document.querySelectorAll('main section[id]')];
+    const navAnchors=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){navAnchors.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id));}});
+    },{rootMargin:'-35% 0px -55% 0px',threshold:0});
+    sections.forEach(s=>observer.observe(s));
+
+    lucide.createIcons();
+  </script>
+</body>
+</html>
