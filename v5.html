@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>陈法学 教授｜个人学术主页 V5</title>
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f7f8fb}iframe{display:block;width:100%;height:100%;border:0;background:#f7f8fb}
+</style>
+</head>
+<body>
+<iframe id="site" src="v3.html" title="陈法学教授个人学术主页 V5"></iframe>
+<script>
+const frame=document.getElementById('site');
+frame.addEventListener('load',()=>{
+  const d=frame.contentDocument,w=frame.contentWindow;
+  if(!d)return;
+  d.title='陈法学 教授｜个人学术主页 V5';
+
+  d.querySelectorAll('.section-intro,.section-subtitle').forEach(el=>el.remove());
+  const gallery=d.querySelector('#gallery'); if(gallery)gallery.remove();
+  d.querySelectorAll('.nav-links a[href="#gallery"]').forEach(el=>el.remove());
+
+  const style=d.createElement('style');
+  style.textContent=`
+    body{background:linear-gradient(180deg,#f8f9fc 0%,#f6f8fb 100%)!important;overflow-x:hidden!important;position:relative}
+    body:before{content:"";position:fixed;left:-55px;top:150px;width:220px;height:220px;pointer-events:none;opacity:.28;background-image:radial-gradient(circle,rgba(0,47,167,.28) 1px,transparent 1.2px);background-size:16px 16px;mask-image:linear-gradient(135deg,#000,transparent 86%);z-index:0}
+    body:after{content:"";position:fixed;right:-115px;top:125px;width:360px;height:360px;border-radius:50%;border:1px solid rgba(0,47,167,.12);box-shadow:0 0 0 36px rgba(0,47,167,.028),0 0 0 72px rgba(0,47,167,.018);pointer-events:none;z-index:0}
+    .topbar,main,footer{position:relative;z-index:2}
+    .v5-bg{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+    .v5-bg .pic{position:absolute;overflow:hidden;border-radius:26px;opacity:.105;filter:saturate(.85) contrast(.95)}
+    .v5-bg .pic img{width:100%;height:100%;object-fit:cover}
+    .v5-bg .left{left:-72px;bottom:7%;width:238px;height:315px;transform:rotate(-9deg)}
+    .v5-bg .right{right:-62px;top:38%;width:258px;height:182px;transform:rotate(9deg)}
+    .v5-bg .line{position:absolute;border:1px solid rgba(229,106,25,.11);border-radius:999px}
+    .v5-bg .l1{left:8%;top:40%;width:205px;height:56px;transform:rotate(-10deg)}
+    .v5-bg .l2{right:11%;bottom:14%;width:245px;height:72px;transform:rotate(8deg)}
+    .about-grid{position:relative}
+    .about-grid:after{content:"";position:absolute;right:-24px;bottom:-8px;width:115px;height:115px;border:1px solid rgba(0,47,167,.09);border-radius:22px;transform:rotate(12deg);pointer-events:none}
+    .activity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .activity-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 5px 16px rgba(15,23,42,.04)}
+    .activity-card img{width:100%;height:198px;object-fit:cover}
+    .activity-card .cap{padding:14px 15px}
+    .activity-card h3{font:700 16px/1.45 var(--serif);margin:0}
+    .activity-card p{font-size:12px;color:var(--muted);margin:6px 0 0}
+    .a1{object-position:center 20%}.a2{object-position:center 36%}.a3{object-position:center 52%}.a4{object-position:left 36%}.a5{object-position:right 36%}.a6{object-position:center 76%}
+    @media(max-width:1080px){.v5-bg{display:none}}
+    @media(max-width:900px){.activity-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:650px){body:before,body:after{display:none}.activity-grid{grid-template-columns:1fr}}
+  `;
+  d.head.appendChild(style);
+
+  const bg=d.createElement('div');
+  bg.className='v5-bg';
+  bg.setAttribute('aria-hidden','true');
+  bg.innerHTML='<div class="pic left"><img src="assets/law_library.jpg" alt=""></div><div class="pic right"><img src="assets/flank-right.jpg" alt=""></div><div class="line l1"></div><div class="line l2"></div>';
+  d.body.prepend(bg);
+
+  const projects=d.querySelector('#projects');
+  if(projects&&!d.querySelector('#activities')){
+    const s=d.createElement('section');
+    s.className='section';s.id='activities';
+    s.innerHTML=`<div class="container"><div class="section-head"><div><div class="eyebrow">学术活动 · Activities</div><h2 class="section-title">学术活动</h2></div><div class="section-index">05 / ACTIVITIES</div></div><div class="activity-grid">
+      <article class="activity-card"><img class="a1" src="assets/academic_symposium.jpg" alt="学术活动"><div class="cap"><h3>主题发言</h3><p>国际学术会议</p></div></article>
+      <article class="activity-card"><img class="a2" src="assets/academic_symposium.jpg" alt="学术活动"><div class="cap"><h3>圆桌讨论</h3><p>平台治理专题研讨</p></div></article>
+      <article class="activity-card"><img class="a3" src="assets/academic_symposium.jpg" alt="学术活动"><div class="cap"><h3>专题研讨</h3><p>数据法与数字治理</p></div></article>
+      <article class="activity-card"><img class="a4" src="assets/academic_symposium.jpg" alt="学术活动"><div class="cap"><h3>学术交流</h3><p>比较法对话</p></div></article>
+      <article class="activity-card"><img class="a5" src="assets/academic_symposium.jpg" alt="学术活动"><div class="cap"><h3>公共讲座</h3><p>人工智能法治</p></div></article>
+      <article class="activity-card"><img class="a6" src="assets/academic_symposium.jpg" alt="学术活动"><div class="cap"><h3>跨学科研讨</h3><p>技术与法律</p></div></article>
+    </div></div>`;
+    projects.insertAdjacentElement('afterend',s);
+    const nav=d.querySelector('.nav-links');
+    if(nav){const contact=nav.querySelector('a[href="#contact"]');const a=d.createElement('a');a.href='#activities';a.textContent='活动';contact?nav.insertBefore(a,contact):nav.appendChild(a)}
+  }
+
+  if(w.lucide)w.lucide.createIcons();
+});
+</script>
+</body>
+</html>
